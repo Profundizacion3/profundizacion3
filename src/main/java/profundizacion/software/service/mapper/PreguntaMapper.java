@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import profundizacion.software.model.Pregunta;
 
-public class PreguntaMapper implements RowMapper {
+public class PreguntaMapper implements RowMapper<Pregunta> {
 	
 	public Pregunta mapRow(ResultSet rs, int rowNum) throws SQLException{
 		Pregunta pregunta = new Pregunta();

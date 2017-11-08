@@ -24,6 +24,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("/api") 
+@CrossOrigin("http://localhost:4200")
 public class AreaConocimientoController {
 	
 public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoController.class);
@@ -37,8 +38,8 @@ public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoCont
 	 * --------------------------------------------------------------------
 	 * 
 	 * */
-	@CrossOrigin(origins = "http://localhost:8080")
-	@RequestMapping(value = "/areaconocimiento", method = RequestMethod.GET)
+	//@CrossOrigin(origins = "http://localhost:8080")
+	@RequestMapping(value = "/area-conocimiento", method = RequestMethod.GET)
     public List findAll() { 	
 		return areaCService.findAllAreasConocimiento(); 
     }
@@ -51,7 +52,7 @@ public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoCont
 	 * 
 	 * */
 	
-	@RequestMapping(value = "/areaconocimiento/{codigo}", method = RequestMethod.GET)
+	@RequestMapping(value = "/area-conocimiento/{codigo}", method = RequestMethod.GET)
 	public ResponseEntity<?> getAreaConocimiento(@PathVariable("codigo") int codigo) {
 	    	
 	        logger.info("Fetching AreaConocimiento with id {}", codigo);
@@ -73,7 +74,7 @@ public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoCont
 	 * 
 	 * */
 	
-	 @RequestMapping(value = "/areaconocimiento/", method = RequestMethod.POST)
+	 @RequestMapping(value = "/area-conocimiento/", method = RequestMethod.POST)
 	    public ResponseEntity<?> createPersona(@RequestBody AreaConocimiento areaC, UriComponentsBuilder ucBuilder) {
 	        logger.info("Creating AreaConocimiento : {}", areaC);
 	 
@@ -96,7 +97,7 @@ public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoCont
 	  * --------------------------------------------------------
 	  * */
 	 
-	 @RequestMapping(value = "/areaconocimiento/{codigo}", method = RequestMethod.PUT)
+	 @RequestMapping(value = "/area-conocimiento/{codigo}", method = RequestMethod.PUT)
 	    public ResponseEntity<?> updateAreaC(@PathVariable("codigo") int codigo, @RequestBody AreaConocimiento areaC) {
 	        logger.info("Updating Persona with id {}", codigo);
 	 
@@ -122,7 +123,7 @@ public static final Logger logger = LoggerFactory.getLogger(AreaConocimientoCont
 	  * */
 	 
 	 
-	 @RequestMapping(value = "/areaconocimiento/{codigo}", method = RequestMethod.DELETE)
+	 @RequestMapping(value = "/area-conocimiento/{codigo}", method = RequestMethod.DELETE)
 	    public ResponseEntity<?> deleteAreaConocimiento(@PathVariable("codigo") int codigo) {
 	        logger.info("Fetching & Deleting AreaConocimiento with id {}", codigo);
 	 

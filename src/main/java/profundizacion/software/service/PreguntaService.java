@@ -17,6 +17,8 @@ public interface PreguntaService {
 	
 	List<Pregunta> findAllPreguntas();
 	
+	List<Pregunta> findPreguntasByCodAreaConocimiento(long codAreaConocimiento);
+	
 	boolean ifPregunaExist(Pregunta pregunta); 
 	
 	

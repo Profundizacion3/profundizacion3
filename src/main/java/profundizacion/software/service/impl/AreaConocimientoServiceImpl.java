@@ -39,7 +39,7 @@ public class AreaConocimientoServiceImpl implements AreaConocimientoService {
 
 	 private final String DELETE_SQL = "DELETE FROM area_conocimiento WHERE aco_codigo = ?";
 
-	 private final String FETCH_SQL  = "SELECT aco_nombre, aco_descripcion FROM area_conocimiento";
+	 private final String FETCH_SQL  = "SELECT * FROM area_conocimiento";
 
 	 private final String FETCH_SQL_BY_ID = "SELECT * FROM area_conocimiento WHERE aco_codigo = ?";
 

@@ -53,16 +53,32 @@ public class PreguntaServiceImpl implements PreguntaService {
 	 
 	 private final String DELETE_SQL = "DELETE FROM pregunta WHERE pre_codigo = ?";
 	 
-	 private final String FETCH_SQL  = "SELECT * FROM pregunta;";
+	 private final String FETCH_SQL  = "SELECT * FROM pregunta ;";
+	 
+	 private final String FETCH_SQL_BY_COD_AREA = "SELECT * FROM pregunta WHERE pre_codareaconocimiento = ?;";
 	 
 	 private final String FETCH_SQL_BY_ID = "SELECT * FROM pregunta WHERE pre_codigo = ?";
 	 
- 
+	
+	@Override
+	public List<Pregunta> findPreguntasByCodAreaConocimiento(long codAreaConocimiento) {
+			
+		//return jdbcTemplate.execute(FETCH_SQL_BY_COD_AREA);
+		
+			return jdbcTemplate.query(
+							FETCH_SQL_BY_COD_AREA,
+							new PreguntaMapper(),
+							codAreaConocimiento 
+							);
+		}
 
 	@Override
 	public Pregunta findById(long codigo) {
 		
-		return (Pregunta) jdbcTemplate.queryForObject(FETCH_SQL_BY_ID, new Object [] {codigo}, new PreguntaMapper());
+		return (Pregunta) jdbcTemplate.queryForObject(
+											FETCH_SQL_BY_ID, 
+											new Object [] {codigo}, 
+											new PreguntaMapper());
 	}
 
 	@Override
@@ -152,6 +168,8 @@ public class PreguntaServiceImpl implements PreguntaService {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
 
 }
 

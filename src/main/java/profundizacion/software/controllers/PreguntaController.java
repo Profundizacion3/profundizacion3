@@ -22,6 +22,7 @@ import profundizacion.software.util.CustomErrorType;
 
 @RestController
 @RequestMapping("api")
+@CrossOrigin("http://localhost:4200")
 public class PreguntaController {
 	
 	public static final Logger logger = LoggerFactory.getLogger(PreguntaController.class); 
@@ -34,10 +35,26 @@ public class PreguntaController {
 	 * 
 	 * */
 	
-	@CrossOrigin(origins = "http://localhost:8080")
+	//@CrossOrigin(origins = "http://localhost:8080")
 	@RequestMapping(value = "/pregunta", method = RequestMethod.GET)
 	public List findAll(){
+		logger.info("Fetching all preguntas");
 		return preguntaService.findAllPreguntas();
+		
+	}
+	
+	
+	/*
+	 * 
+	 * TODO Get questions by codAreaConocimiento
+	 * 
+	 * */
+	
+	@RequestMapping(value = "/preguntas-area/{codArea}", method = RequestMethod.GET)
+	public List findByCodArea(@PathVariable("codArea") long codArea){
+		logger.info("Fetching preguntas-area with cod {}", codArea);
+		return preguntaService.findPreguntasByCodAreaConocimiento(codArea);
+		
 	}
 	
 	/*
@@ -46,7 +63,7 @@ public class PreguntaController {
 	 * */
 	
 	@RequestMapping(value = "/pregunta/{codigo}", method = RequestMethod.GET)
-	public ResponseEntity<?> getPregunta(@PathVariable("codigo") long codigo ){
+	public ResponseEntity<?> getPregunta(@PathVariable("codigo") long codigo){
 		
 		logger.info("Fetching Pregunta with codigo {}",codigo);
 		
