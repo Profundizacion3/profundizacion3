@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AreaConocimiento } from '../models/AreaConocimiento';
+import { AreaConocimientoService } from '../services/area-conocimiento.service';
 
 @Component({
   selector: 'app-left-side-bar',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeftSideBarComponent implements OnInit {
 
-  constructor() { }
+	areasConocimiento: AreaConocimiento[];
 
-  ngOnInit() {
+  constructor(private areaSevice: AreaConocimientoService) { }
+
+  getAreasConocimiento(){
+  	return this.areaSevice
+  				.getAreasConocimiento() 
+  				.then(areasConocimiento => this.areasConocimiento = areasConocimiento);
+  }
+
+  ngOnInit():void { 
+  	this.getAreasConocimiento();
   }
 
 }

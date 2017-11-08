@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -6,10 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.component.css']
 })
 export class InicioComponent implements OnInit {
+	private codArea:number;
+ 
+  constructor( private _activateRoute: ActivatedRoute,
+  	private _router: Router) { }
 
-  constructor() { }
+   getPreguntasArea(){
 
-  ngOnInit() {
+  	this._activateRoute.params.forEach((params:Params) =>{
+  			this.codArea = params['codArea']; 
+  	});
+}
+  ngOnInit():void {
+  	this.getPreguntasArea();
   }
 
 }

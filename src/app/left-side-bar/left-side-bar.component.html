@@ -25,7 +25,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">NAVIGACIÓN</li>
+                    <li class="header">NAVEGACIÓN</li>
                     <li class="active">
                         <a [routerLink]="['/inicio']" >
                             <i class="material-icons">home</i>
@@ -33,10 +33,24 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a  href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">collections_bookmark</i>
-                            <span>Ventas</span>
+                            <span>Preguntas</span>
                         </a>
+
+                        <!--Areas de Conocimiento -->
+
+                        <ul class="ml-menu" >    
+                            <li>
+                                <a *ngFor="let areaCon of areasConocimiento"
+                                            [routerLink]="['/preguntas-area/',areaCon.codigo ]" >
+                                   {{areaCon.nombre}}              
+                                </a>
+                            </li> 
+                        </ul>
+                        
+                        <!-- **** FIN Areas de Conocimiento ****--> 
+
                     </li>
                     <li>
                         <a href="pages/clientes/">

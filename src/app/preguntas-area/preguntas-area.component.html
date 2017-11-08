@@ -1,0 +1,60 @@
+<section>
+	<div class="row">
+        <div class="col-lg-12">
+           	<h1 class="page-header">Preguntas </h1>
+        </div>
+                <!-- /.col-lg-12 -->
+	</div> <!-- /.row -->
+	
+	<div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <div class="btn-group pull-right">
+                        <button type='button' class="btn btn-primary btn-md m-l-15 waves-effect" data-toggle="modal" data-target="#nuevoProducto">
+                            <span class="glyphicon glyphicon-plus" ></span> Nuevo Producto
+                        </button>
+                    </div>
+                   <h2>Listado de Productos  </h2>
+         
+                </div>
+                
+                <div class="body">
+                    <form>
+                        <div class="row clearfix">
+                            <br><br> 
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" id="q" class="form-control" placeholder="" onkeyup='load(1);'>
+                                                <label class="form-label">Nombre del producto</label>
+                                    </div>
+                                </div>
+                           </div> 
+                                    
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <button type="button" class="btn btn-primary btn-md m-l-15 waves-effect" onclick='load(1)'; >
+                                <span class="glyphicon glyphicon-search" ></span> Buscar</button>
+                            </div>
+                        </div>
+                    </form>
+						
+					<h1> {{codArea}}</h1>
+	                <div *ngFor="let pregunta of preguntasArea " >
+	                	<p>{{pregunta.enunciado}}</p>
+	                	<ul>
+	                		<li>{{pregunta.opcion1}}</li>
+	                		<li>{{pregunta.opcion2}}</li>
+	                		<li>{{pregunta.opcion3}}</li>
+	                		<li>{{pregunta.opcion4}}</li>
+	                		<li>{{pregunta.opcion5}}</li>
+	                	</ul>
+
+	                </div><!-- Carga los datos ajax -->
+	                <div class='outer_div'></div><!-- Carga los datos ajax -->
+                        
+                </div>
+            </div> <!-- END CARD -->
+        </div>
+    </div> <!-- END div- row clearfix --> 
+</section>

@@ -5,21 +5,15 @@ import { AppComponent } from './app.component';
 import { Error404Component } from './error404/error404.component';
 import { InicioComponent} from './inicio/inicio.component';
 import { LoginComponent } from './login/login.component';
+import { PreguntasAreaComponent } from './preguntas-area/preguntas-area.component';
 
 
 
 
-const appRoutes: Routes =[
+const appRoutes: Routes =[ 
 		{path: '', component : AppComponent},
-		//{path: 'pregunta', component : PreguntaComponent},
-		//{path: 'admin', component: AdminComponent},
-		//{path: 'evaluador', component: EvaluadorComponent},
-		//{path: 'profesor', component: ProfesorComponent},
-		//{path: 'estudiante', component: EstudianteComponent},
-		//{path: 'fruta', component: FrutaComponent},
 		{path: 'inicio', component: InicioComponent},
-		//{path: 'contacto', component: ContactoComponent},
-		//{path: 'contacto/:page', component: ContactoComponent},
+		{path: 'preguntas-area/:codArea', component: PreguntasAreaComponent},
 		{path: '**', component: Error404Component},
 		{path: 'error404', component: Error404Component },
 		{path: 'login', component: LoginComponent }
